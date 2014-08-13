@@ -17,7 +17,7 @@
 		5FFF76E0199C193200AE0269 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFF76DF199C193200AE0269 /* SystemConfiguration.framework */; };
 		5FFF76E2199C193700AE0269 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFF76E1199C193700AE0269 /* CFNetwork.framework */; };
 		5FFF76E4199C194800AE0269 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFF76E3199C194800AE0269 /* Security.framework */; };
-		5FFF76E6199C195500AE0269 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFF76E5199C195500AE0269 /* Firebase.framework */; };
+		5FFF76E8199C19CF00AE0269 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFF76E7199C19CF00AE0269 /* Firebase.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +45,8 @@
 		5FFF76DF199C193200AE0269 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5FFF76E1199C193700AE0269 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		5FFF76E3199C194800AE0269 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		5FFF76E5199C195500AE0269 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = "../../../Frameworks/Firebase-1.1.11/Firebase.framework"; sourceTree = "<group>"; };
+		5FFF76E7199C19CF00AE0269 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		5FFF76E9199C19EC00AE0269 /* FireChat-Swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FireChat-Swift-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +55,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FFF76E4199C194800AE0269 /* Security.framework in Frameworks */,
-				5FFF76E6199C195500AE0269 /* Firebase.framework in Frameworks */,
+				5FFF76E8199C19CF00AE0269 /* Firebase.framework in Frameworks */,
 				5FFF76E2199C193700AE0269 /* CFNetwork.framework in Frameworks */,
 				5FFF76E0199C193200AE0269 /* SystemConfiguration.framework in Frameworks */,
 				5FFF76DE199C192900AE0269 /* libicucore.dylib in Frameworks */,
@@ -75,7 +76,7 @@
 		5FFF76B0199C191F00AE0269 = {
 			isa = PBXGroup;
 			children = (
-				5FFF76E5199C195500AE0269 /* Firebase.framework */,
+				5FFF76E7199C19CF00AE0269 /* Firebase.framework */,
 				5FFF76E3199C194800AE0269 /* Security.framework */,
 				5FFF76E1199C193700AE0269 /* CFNetwork.framework */,
 				5FFF76DF199C193200AE0269 /* SystemConfiguration.framework */,
@@ -104,6 +105,7 @@
 				5FFF76C2199C191F00AE0269 /* Main.storyboard */,
 				5FFF76C5199C191F00AE0269 /* Images.xcassets */,
 				5FFF76BC199C191F00AE0269 /* Supporting Files */,
+				5FFF76E9199C19EC00AE0269 /* FireChat-Swift-Bridging-Header.h */,
 			);
 			path = "FireChat-Swift";
 			sourceTree = "<group>";
@@ -349,14 +351,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/katfang/Frameworks/Firebase-1.1.11",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "FireChat-Swift/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FireChat-Swift/FireChat-Swift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -365,14 +370,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/katfang/Frameworks/Firebase-1.1.11",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "FireChat-Swift/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FireChat-Swift/FireChat-Swift-Bridging-Header.h";
 			};
 			name = Release;
 		};
