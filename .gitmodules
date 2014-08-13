@@ -1,0 +1,3 @@
+[submodule "JSQMessagesViewController"]
+	path = JSQMessagesViewController
+	url = git@github.com:jessesquires/JSQMessagesViewController.git
