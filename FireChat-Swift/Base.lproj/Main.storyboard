@@ -13,7 +13,7 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -41,24 +41,25 @@
             </objects>
             <point key="canvasLocation" x="1032" y="-397"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="WAI-50-mdf">
             <objects>
-                <viewController id="Avq-wd-9Dg" sceneMemberID="viewController">
+                <viewController id="Avq-wd-9Dg" customClass="LoginViewController" customModule="FireChat_Swift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wd7-BT-RyB"/>
                         <viewControllerLayoutGuide type="bottom" id="bgP-46-PSH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qQl-qQ-Nk5">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKi-bQ-I1g">
-                                <rect key="frame" x="268" y="285" width="43" height="30"/>
-                                <state key="normal" title="Login!">
+                                <rect key="frame" x="100" y="269" width="121" height="30"/>
+                                <state key="normal" title="Login with Twitter">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="loginWithTwitter:" destination="Avq-wd-9Dg" eventType="touchUpInside" id="qH9-fS-oiH"/>
                                     <segue destination="Gmw-sI-4Yj" kind="showDetail" id="NTF-2u-Iql"/>
                                 </connections>
                             </button>
@@ -66,16 +67,29 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="9Ed-Xy-HJT"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
+                        <size key="portraitSize" width="320" height="568"/>
+                        <size key="landscapeSize" width="568" height="320"/>
+                    </simulatedScreenMetrics>
+                    <connections>
+                        <outlet property="btLogin" destination="pKi-bQ-I1g" id="pbb-jK-LOD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jkr-q9-rOs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1784" y="285"/>
+            <point key="canvasLocation" x="1752" y="285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0jd-bS-rPQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Gzm-mi-xZd" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4">
+                        <size key="portraitSize" width="320" height="568"/>
+                        <size key="landscapeSize" width="568" height="320"/>
+                    </simulatedScreenMetrics>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lBH-Pf-sZa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

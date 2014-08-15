@@ -73,6 +73,10 @@
 		5FFF7810199C1FD900AE0269 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFF780F199C1FD900AE0269 /* AudioToolbox.framework */; };
 		5FFF7812199C201200AE0269 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFF7811199C201200AE0269 /* UIKit.framework */; };
 		5FFF7815199C364700AE0269 /* JSQDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFF7814199C364700AE0269 /* JSQDemoViewController.m */; };
+		63891100199E968100B8998F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638910FF199E968100B8998F /* LoginViewController.swift */; };
+		63891102199EB21D00B8998F /* FirebaseSimpleLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63891101199EB21D00B8998F /* FirebaseSimpleLogin.framework */; };
+		63891104199EB24200B8998F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63891103199EB24200B8998F /* Accounts.framework */; };
+		63891106199EB24800B8998F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63891105199EB24800B8998F /* Social.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +190,10 @@
 		5FFF7811199C201200AE0269 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5FFF7813199C364700AE0269 /* JSQDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSQDemoViewController.h; path = ../JSQMessagesViewController/JSQMessagesDemo/JSQDemoViewController.h; sourceTree = "<group>"; };
 		5FFF7814199C364700AE0269 /* JSQDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSQDemoViewController.m; path = ../JSQMessagesViewController/JSQMessagesDemo/JSQDemoViewController.m; sourceTree = "<group>"; };
+		638910FF199E968100B8998F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		63891101199EB21D00B8998F /* FirebaseSimpleLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseSimpleLogin.framework; sourceTree = "<group>"; };
+		63891103199EB24200B8998F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		63891105199EB24800B8998F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +201,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63891106199EB24800B8998F /* Social.framework in Frameworks */,
+				63891104199EB24200B8998F /* Accounts.framework in Frameworks */,
 				5FFF7812199C201200AE0269 /* UIKit.framework in Frameworks */,
 				5FFF7810199C1FD900AE0269 /* AudioToolbox.framework in Frameworks */,
 				5FFF780E199C1FC600AE0269 /* QuartzCore.framework in Frameworks */,
@@ -202,6 +212,7 @@
 				5FFF76E0199C193200AE0269 /* SystemConfiguration.framework in Frameworks */,
 				5FFF76DE199C192900AE0269 /* libicucore.dylib in Frameworks */,
 				5FFF76DC199C192600AE0269 /* libc++.dylib in Frameworks */,
+				63891102199EB21D00B8998F /* FirebaseSimpleLogin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +229,9 @@
 		5F5814D5199E8D65000E0E87 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				63891105199EB24800B8998F /* Social.framework */,
+				63891103199EB24200B8998F /* Accounts.framework */,
+				63891101199EB21D00B8998F /* FirebaseSimpleLogin.framework */,
 				5FFF7811199C201200AE0269 /* UIKit.framework */,
 				5FFF780F199C1FD900AE0269 /* AudioToolbox.framework */,
 				5FFF780D199C1FC600AE0269 /* QuartzCore.framework */,
@@ -264,6 +278,7 @@
 				5FFF76BC199C191F00AE0269 /* Supporting Files */,
 				5FFF76E9199C19EC00AE0269 /* FireChat-Swift-Bridging-Header.h */,
 				5FCB62C0199E7C19008B93DB /* MessagesViewController.swift */,
+				638910FF199E968100B8998F /* LoginViewController.swift */,
 			);
 			path = "FireChat-Swift";
 			sourceTree = "<group>";
@@ -603,6 +618,7 @@
 				5FFF77FB199C1F6C00AE0269 /* JSQMessagesCollectionViewCellIncoming.m in Sources */,
 				5FFF77E9199C1F6C00AE0269 /* JSQSystemSoundPlayer+JSQMessages.m in Sources */,
 				5FFF7815199C364700AE0269 /* JSQDemoViewController.m in Sources */,
+				63891100199E968100B8998F /* LoginViewController.swift in Sources */,
 				5FFF77EB199C1F6C00AE0269 /* UIColor+JSQMessages.m in Sources */,
 				5FFF77FD199C1F6C00AE0269 /* JSQMessagesCollectionViewCellOutgoing.m in Sources */,
 				5FFF7806199C1F6C00AE0269 /* JSQMessagesTypingIndicatorFooterView.m in Sources */,
@@ -746,6 +762,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FireChat-Swift/FireChat-Swift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -764,6 +781,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FireChat-Swift/FireChat-Swift-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
