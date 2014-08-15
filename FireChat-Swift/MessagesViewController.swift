@@ -41,6 +41,11 @@ class MessagesViewController: JSQMessagesViewController {
         messagesRef = ref.childByAppendingPath("messages")
         
         // *** GOT A MESSAGE FROM FIREBASE
+        messagesRef.observeEventType(FEventTypeChildAdded, withBlock: { (snapshot) in
+            let message = JSQMessage(text: snapshot.value["text"] as? String, sender: snapshot.value["sender"] as? String)
+            self.messages.append(message)
+            self.collectionView.reloadData()
+        })
         // *** END GOT A MESSAGE FROM FIREBASE
     }
     
