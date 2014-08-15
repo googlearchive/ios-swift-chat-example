@@ -15,13 +15,9 @@ class MessagesViewController: JSQMessagesViewController {
     var incomingBubbleImageView = JSQMessagesBubbleImageFactory.incomingMessageBubbleImageViewWithColor(UIColor.jsq_messageBubbleGreenColor())
     var ref: Firebase!
     var messagesRef: Firebase!
+    var batchMessages = true
     
     func setupTestModel() {
-        messages = [
-            JSQMessage(text: "A", sender: "SA"),
-            JSQMessage(text: "A", sender: "SB"),
-            JSQMessage(text: "A", sender: "SC")]
-        
         var outgoingDiameter = collectionView.collectionViewLayout.outgoingAvatarViewSize.width
         var sbImage = JSQMessagesAvatarFactory.avatarWithUserInitials("SB", backgroundColor: UIColor.blueColor(), textColor: UIColor.blackColor(), font: UIFont.systemFontOfSize(CGFloat(14)), diameter: UInt(outgoingDiameter))
         
@@ -35,7 +31,7 @@ class MessagesViewController: JSQMessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         sender = "Sender A"
-        automaticallyScrollsToMostRecentMessage = true  
+        automaticallyScrollsToMostRecentMessage = true
         setupTestModel()
         
         ref = Firebase(url: "https://swift-chat.firebaseio.com/")
@@ -45,7 +41,15 @@ class MessagesViewController: JSQMessagesViewController {
         messagesRef.observeEventType(FEventTypeChildAdded, withBlock: { (snapshot) in
             let message = JSQMessage(text: snapshot.value["text"] as? String, sender: snapshot.value["sender"] as? String)
             self.messages.append(message)
-            self.collectionView.reloadData()
+            if !self.batchMessages {
+                self.finishReceivingMessage()
+            }
+        })
+        
+        messagesRef.observeSingleEventOfType(FEventTypeValue, withBlock: { (snapshot) in
+            self.finishReceivingMessage()
+            self.batchMessages = false
+            println("Should be done")
         })
         // *** END GOT A MESSAGE FROM FIREBASE
     }
@@ -64,9 +68,6 @@ class MessagesViewController: JSQMessagesViewController {
     
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, sender: String!, date: NSDate!) {
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
-        
-        let message = JSQMessage(text: text, sender: sender, date: date)
-        messages.append(message)
         
         // *** ADD A MESSAGE TO FIREBASE
         messagesRef.childByAutoId().setValue(["text":text, "sender":sender])
