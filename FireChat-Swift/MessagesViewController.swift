@@ -37,7 +37,7 @@ class MessagesViewController: JSQMessagesViewController {
         sender = "SA"
         setupTestModel()
         
-        ref = Firebase(url: "https://firechat-swift.firebaseio-demo.com/")
+        ref = Firebase(url: "https://swift-chat.firebaseio.com/")
         messagesRef = ref.childByAppendingPath("messages")
         
         // *** GOT A MESSAGE FROM FIREBASE
