@@ -22,11 +22,11 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>3295696B2ABB63B244A5608CBC7B986155E10CBC</key>
-		<string>../..JSQSystemSoundPlayer/</string>
+		<string>../..JSQSystemSoundPlayer</string>
 		<key>5C880BE1B99588B39156D68833EAB2407BF6A594</key>
 		<string>../..</string>
 		<key>90530B99EB0008E7A50951FDFBE02169118FA649</key>
-		<string>../..JSQMessagesViewController/</string>
+		<string>../..JSQMessagesViewController</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>github.com:katfang/firechat-swift.git</string>
@@ -50,7 +50,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>90530B99EB0008E7A50951FDFBE02169118FA649</string>
 			<key>IDESourceControlWCCName</key>
-			<string>JSQMessagesViewController</string>
+			<string>FireChat-SwiftJSQMessagesViewController</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
@@ -58,7 +58,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>3295696B2ABB63B244A5608CBC7B986155E10CBC</string>
 			<key>IDESourceControlWCCName</key>
-			<string>JSQSystemSoundPlayer</string>
+			<string>FireChat-SwiftJSQSystemSoundPlayer</string>
 		</dict>
 	</array>
 </dict>
