@@ -13,6 +13,8 @@ class MessagesViewController: JSQMessagesViewController {
     var avatars = Dictionary<String, UIImage>()
     var outgoingBubbleImageView = JSQMessagesBubbleImageFactory.outgoingMessageBubbleImageViewWithColor(UIColor.jsq_messageBubbleLightGrayColor())
     var incomingBubbleImageView = JSQMessagesBubbleImageFactory.incomingMessageBubbleImageViewWithColor(UIColor.jsq_messageBubbleGreenColor())
+    var ref: Firebase!
+    var messagesRef: Firebase!
     
     func setupTestModel() {
         messages = [
@@ -34,6 +36,9 @@ class MessagesViewController: JSQMessagesViewController {
         super.viewDidLoad()
         sender = "SA"
         setupTestModel()
+        
+        ref = Firebase(url: "https://firechat-swift.firebaseio-demo.com/")
+        messagesRef = ref.childByAppendingPath("messages")
         
         // *** GOT A MESSAGE FROM FIREBASE
         // *** END GOT A MESSAGE FROM FIREBASE
@@ -58,6 +63,7 @@ class MessagesViewController: JSQMessagesViewController {
         messages.append(message)
         
         // *** ADD A MESSAGE TO FIREBASE
+        messagesRef.childByAutoId().setValue(["text":text, "sender":sender])
         // *** END ADD A MESSAGE TO FIREBASE
         
         finishSendingMessage()
