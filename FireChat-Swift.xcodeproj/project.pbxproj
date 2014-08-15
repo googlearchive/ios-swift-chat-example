@@ -215,7 +215,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5FFF76B0199C191F00AE0269 = {
+		5F5814D5199E8D65000E0E87 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				5FFF7811199C201200AE0269 /* UIKit.framework */,
@@ -229,6 +229,14 @@
 				5FFF76DF199C193200AE0269 /* SystemConfiguration.framework */,
 				5FFF76DD199C192900AE0269 /* libicucore.dylib */,
 				5FFF76DB199C192600AE0269 /* libc++.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5FFF76B0199C191F00AE0269 = {
+			isa = PBXGroup;
+			children = (
+				5F5814D5199E8D65000E0E87 /* Frameworks */,
 				5FFF76BB199C191F00AE0269 /* FireChat-Swift */,
 				5FFF76CE199C191F00AE0269 /* FireChat-SwiftTests */,
 				5FFF76BA199C191F00AE0269 /* Products */,
