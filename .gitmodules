@@ -1,0 +1,6 @@
+[submodule "JSQSystemSoundPlayer"]
+	path = JSQSystemSoundPlayer
+	url = git@github.com:katfang/JSQSystemSoundPlayer.git
+[submodule "JSQMessagesViewController"]
+	path = JSQMessagesViewController
+	url = git@github.com:katfang/JSQMessagesViewController.git
