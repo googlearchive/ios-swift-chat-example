@@ -33,8 +33,10 @@ class MessagesViewController: JSQMessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         sender = "SA"
+        setupTestModel()
         
-        self.setupTestModel()
+        // *** GOT A MESSAGE FROM FIREBASE
+        // *** END GOT A MESSAGE FROM FIREBASE
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -47,8 +49,6 @@ class MessagesViewController: JSQMessagesViewController {
         // Simulate reciving message
         showTypingIndicator = !showTypingIndicator
         scrollToBottomAnimated(true)
-        
-        // TODO message pressed?
     }
     
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, sender: String!, date: NSDate!) {
@@ -57,9 +57,10 @@ class MessagesViewController: JSQMessagesViewController {
         let message = JSQMessage(text: text, sender: sender, date: date)
         messages.append(message)
         
-        finishSendingMessage()
+        // *** ADD A MESSAGE TO FIREBASE
+        // *** END ADD A MESSAGE TO FIREBASE
         
-        // TODO SENDING MESSAGE TO FIREBASE
+        finishSendingMessage()
     }
     
     override func didPressAccessoryButton(sender: UIButton!) {
@@ -91,7 +92,6 @@ class MessagesViewController: JSQMessagesViewController {
     }
     
     override func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell! {
-        
         let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath) as JSQMessagesCollectionViewCell
         
         let message = messages[indexPath.item]
