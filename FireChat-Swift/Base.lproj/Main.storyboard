@@ -53,14 +53,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKi-bQ-I1g">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5yJ-ZT-Jpb">
                                 <rect key="frame" x="100" y="269" width="121" height="30"/>
                                 <state key="normal" title="Login with Twitter">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginWithTwitter:" destination="Avq-wd-9Dg" eventType="touchUpInside" id="qH9-fS-oiH"/>
-                                    <segue destination="Gmw-sI-4Yj" kind="showDetail" id="NTF-2u-Iql"/>
+                                    <action selector="login:" destination="Avq-wd-9Dg" eventType="touchUpInside" id="mYD-oS-Xie"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -73,7 +72,8 @@
                         <size key="landscapeSize" width="568" height="320"/>
                     </simulatedScreenMetrics>
                     <connections>
-                        <outlet property="btLogin" destination="pKi-bQ-I1g" id="pbb-jK-LOD"/>
+                        <outlet property="btLogin" destination="5yJ-ZT-Jpb" id="Jc9-Yo-Xj6"/>
+                        <segue destination="vXZ-lx-hvc" kind="show" identifier="TWITTER_LOGIN" id="ZSO-TZ-f0I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jkr-q9-rOs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -104,4 +104,7 @@
             <point key="canvasLocation" x="1040" y="285"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZSO-TZ-f0I"/>
+    </inferredMetricsTieBreakers>
 </document>
