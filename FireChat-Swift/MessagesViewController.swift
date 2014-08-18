@@ -25,7 +25,7 @@ class MessagesViewController: JSQMessagesViewController {
         var saImage = JSQMessagesAvatarFactory.avatarWithUserInitials("SA", backgroundColor: UIColor.greenColor(), textColor: UIColor.blackColor(), font: UIFont.systemFontOfSize(CGFloat(14)), diameter: UInt(outgoingDiameter))
         var scImage = JSQMessagesAvatarFactory.avatarWithUserInitials("SC", backgroundColor: UIColor.redColor(), textColor: UIColor.blackColor(), font: UIFont.systemFontOfSize(CGFloat(14)), diameter: UInt(outgoingDiameter))
         
-        avatars = ["Sender A":saImage, "Sender B":sbImage, "Sender C":scImage]
+        avatars = ["Sender A":saImage, "Sender B":sbImage, "Sender C":scImage, "SA":scImage]
     }
     
     override func viewDidLoad() {
@@ -39,17 +39,13 @@ class MessagesViewController: JSQMessagesViewController {
         
         // *** GOT A MESSAGE FROM FIREBASE
         messagesRef.observeEventType(FEventTypeChildAdded, withBlock: { (snapshot) in
-            let message = JSQMessage(text: snapshot.value["text"] as? String, sender: snapshot.value["sender"] as? String)
-            self.messages.append(message)
-            if !self.batchMessages {
-                self.finishReceivingMessage()
+            if let data = snapshot.value as? [String:AnyObject] {
+                let messageText = data["text"]! as? String
+                let messageSender = data["sender"]! as? String
+                
+                let message = JSQMessage(text: messageText, sender: messageSender)
+                self.messages.append(message)
             }
-        })
-        
-        messagesRef.observeSingleEventOfType(FEventTypeValue, withBlock: { (snapshot) in
-            self.finishReceivingMessage()
-            self.batchMessages = false
-            println("Should be done")
         })
         // *** END GOT A MESSAGE FROM FIREBASE
     }
