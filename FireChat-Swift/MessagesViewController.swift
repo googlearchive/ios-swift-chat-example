@@ -9,6 +9,9 @@
 import UIKit
 
 class MessagesViewController: JSQMessagesViewController {
+    
+    var user: FAUser?
+    
     var messages = [JSQMessage]()
     var avatars = Dictionary<String, UIImage>()
     var outgoingBubbleImageView = JSQMessagesBubbleImageFactory.outgoingMessageBubbleImageViewWithColor(UIColor.jsq_messageBubbleLightGrayColor())
