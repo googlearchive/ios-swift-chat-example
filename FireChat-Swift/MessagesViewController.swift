@@ -21,24 +21,37 @@ class MessagesViewController: JSQMessagesViewController {
     var batchMessages = true
     
     func setupTestModel() {
-        var outgoingDiameter = collectionView.collectionViewLayout.outgoingAvatarViewSize.width
-        var sbImage = JSQMessagesAvatarFactory.avatarWithUserInitials("SB", backgroundColor: UIColor.blueColor(), textColor: UIColor.blackColor(), font: UIFont.systemFontOfSize(CGFloat(14)), diameter: UInt(outgoingDiameter))
+        let outgoingDiameter = collectionView.collectionViewLayout.outgoingAvatarViewSize.width
+        let incomingDiameter = collectionView.collectionViewLayout.incomingAvatarViewSize.width
+        let sbImage = JSQMessagesAvatarFactory.avatarWithUserInitials("SB", backgroundColor: UIColor.blueColor(), textColor: UIColor.blackColor(), font: UIFont.systemFontOfSize(CGFloat(14)), diameter: UInt(incomingDiameter))
+        let saImage = JSQMessagesAvatarFactory.avatarWithUserInitials("SA", backgroundColor: UIColor.greenColor(), textColor: UIColor.blackColor(), font: UIFont.systemFontOfSize(CGFloat(14)), diameter: UInt(outgoingDiameter))
+        let scImage = JSQMessagesAvatarFactory.avatarWithUserInitials("SC", backgroundColor: UIColor.redColor(), textColor: UIColor.blackColor(), font: UIFont.systemFontOfSize(CGFloat(14)), diameter: UInt(outgoingDiameter))
+        let anonImage = JSQMessagesAvatarFactory.avatarWithUserInitials("Anon", backgroundColor: UIColor.grayColor(), textColor: UIColor.blackColor(), font: UIFont.systemFontOfSize(CGFloat(14)), diameter: UInt(outgoingDiameter))
         
-        var incomingDiameter = collectionView.collectionViewLayout.incomingAvatarViewSize.width
-        var saImage = JSQMessagesAvatarFactory.avatarWithUserInitials("SA", backgroundColor: UIColor.greenColor(), textColor: UIColor.blackColor(), font: UIFont.systemFontOfSize(CGFloat(14)), diameter: UInt(outgoingDiameter))
-        var scImage = JSQMessagesAvatarFactory.avatarWithUserInitials("SC", backgroundColor: UIColor.redColor(), textColor: UIColor.blackColor(), font: UIFont.systemFontOfSize(CGFloat(14)), diameter: UInt(outgoingDiameter))
+        avatars = ["Sender A":saImage, "Sender B":sbImage, "Sender C":scImage, "Anonymous": anonImage]
+    }
+    
+    func setupUserAvatar() {
+        if sender == "Anonymous" {
+            return
+        }
         
-        avatars = ["Sender A":saImage, "Sender B":sbImage, "Sender C":scImage, "SA":scImage]
+        let outgoingDiameter = collectionView.collectionViewLayout.outgoingAvatarViewSize.width
+        let initials : String? = sender.substringToIndex(advance(sender.startIndex, 2))
+        let userImage = JSQMessagesAvatarFactory.avatarWithUserInitials(initials, backgroundColor: UIColor.redColor(), textColor: UIColor.blackColor(), font: UIFont.systemFontOfSize(CGFloat(14)), diameter: UInt(outgoingDiameter))
+        avatars[sender] = userImage
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        sender = "Sender A"
+        sender = sender ? sender : "Anonymous"
         automaticallyScrollsToMostRecentMessage = true
         setupTestModel()
         
         ref = Firebase(url: "https://swift-chat.firebaseio.com/")
         messagesRef = ref.childByAppendingPath("messages")
+        
+        setupUserAvatar()
         
         // *** GOT A MESSAGE FROM FIREBASE
         messagesRef.observeEventType(FEventTypeChildAdded, withBlock: { (snapshot) in

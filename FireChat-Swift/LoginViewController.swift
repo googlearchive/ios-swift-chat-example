@@ -25,13 +25,15 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
     }
 
     func authWithTwitter() {
-            var myRef = Firebase(url:"https://swift-chat.firebaseio.com")
+        var myRef = Firebase(url:"https://swift-chat.firebaseio.com")
         var authRef = FirebaseSimpleLogin(ref:myRef)
+        println("timing: authWithTwitter \(currentTwitterHandle)")
         
         if currentTwitterHandle != nil {
             
             authRef.loginToTwitterAppWithId("S40X72gZw8JSoDVjWtwidpk2r",
                 multipleAccountsHandler: { usernames -> Int32 in
+                    println("timing: authRef.loginToTwitter")
                     
                     if let usernamesArray = usernames as? [String] {
                         
@@ -43,6 +45,7 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
                     
                     return 1;
                 }, withCompletionBlock: { error, user in
+                    println("timing: authRef.withCompletionBlock")
                     if error {
                         // There was an error authenticating
                     } else {
@@ -62,6 +65,7 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
                 if granted {
                     
                     var accounts = accountStore.accountsWithAccountType(accountType)
+                    
                     dispatch_async(dispatch_get_main_queue()) {
                         self.handleMultipleTwitterAccounts(accounts)
                     }
@@ -105,13 +109,17 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
     }
     
     func actionSheet(actionSheet: UIActionSheet!, clickedButtonAtIndex buttonIndex: Int) {
+        println("timing: actionsheet triggered")
         self.currentTwitterHandle = actionSheet.buttonTitleAtIndex(buttonIndex)
         self.authWithTwitter()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         var messagesVc = segue.destinationViewController as MessagesViewController
-        messagesVc.user = sender as? FAUser
+        if let user = sender as? FAUser {
+            messagesVc.user = user
+            messagesVc.sender = user.thirdPartyUserData["username"]! as String
+        }
     }
 
     
