@@ -25,8 +25,7 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
     }
 
     func authWithTwitter() {
-    
-        var myRef = Firebase(url:"https://swift-chat.firebaseio.com")
+            var myRef = Firebase(url:"https://swift-chat.firebaseio.com")
         var authRef = FirebaseSimpleLogin(ref:myRef)
         
         if currentTwitterHandle != nil {
@@ -59,13 +58,13 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
             var accountStore = ACAccountStore();
             var accountType = accountStore.accountTypeWithAccountTypeIdentifier(ACAccountTypeIdentifierTwitter);
             
-
             accountStore.requestAccessToAccountsWithType(accountType, options: nil, completion: { granted, error -> Void in
-                
                 if granted {
-                 
+                    
                     var accounts = accountStore.accountsWithAccountType(accountType)
-                    self.handleMultipleTwitterAccounts(accounts)
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.handleMultipleTwitterAccounts(accounts)
+                    }
                     
                 } else {
                     // User has denied access to Twitter accounts
@@ -78,7 +77,6 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
 
 
     func selectTwitterAccount(accounts: NSArray) {
- 
         var selectUserActionSheet = UIActionSheet(title: "Select Twitter Account", delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: "Destruct", otherButtonTitles: "Other")
         
         for account in accounts {

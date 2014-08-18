@@ -48,6 +48,7 @@ class MessagesViewController: JSQMessagesViewController {
                 
                 let message = JSQMessage(text: messageText, sender: messageSender)
                 self.messages.append(message)
+                self.finishReceivingMessage()
             }
         })
         // *** END GOT A MESSAGE FROM FIREBASE
