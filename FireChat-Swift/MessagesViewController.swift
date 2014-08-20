@@ -25,7 +25,7 @@ class MessagesViewController: JSQMessagesViewController {
     var messagesRef: Firebase!
     // *** END STEP 1
     
-    func setupTestModelAvatars() {
+    func setupTestModel() {
         let outgoingDiameter = collectionView.collectionViewLayout.outgoingAvatarViewSize.width
         let incomingDiameter = collectionView.collectionViewLayout.incomingAvatarViewSize.width
         let sbImage = JSQMessagesAvatarFactory.avatarWithUserInitials("SB", backgroundColor: UIColor.blueColor(), textColor: UIColor.blackColor(), font: UIFont.systemFontOfSize(CGFloat(14)), diameter: UInt(incomingDiameter))
@@ -37,6 +37,13 @@ class MessagesViewController: JSQMessagesViewController {
         avatars["Sender B"] = sbImage
         avatars["Sender C"] = scImage
         avatars["Anonymous"] = anonImage
+        
+        messages = [
+            Message(text: "I'm so fast, I got here first.", sender: "Flash", imageUrl: "http://images.fanpop.com/images/image_uploads/Flash-logo-dc-comics-251206_1024_768.jpg"),
+            Message(text: "Well, I'm making sure all the data is stored.", sender:"Superman", imageUrl: "http://upload.wikimedia.org/wikipedia/en/7/73/Superman_shield.png"),
+            Message(text: "I make sure everything is remembered.", sender: "Professor X", imageUrl: "http://movietime.pl/wp-content/uploads/2014/05/x-men_logo_1-1.png"),
+            Message(text: "We'll keep everything simple and functioning.", sender: "Fantastic 4", imageUrl: "http://img1.wikia.nocookie.net/__cb20130719192836/p__/protagonist/images/e/e9/Fantastic_four_logo.jpg")
+        ]
     }
     
     func setupAvatarImage(name: String, imageUrl: String?, incoming: Bool) {
@@ -84,6 +91,8 @@ class MessagesViewController: JSQMessagesViewController {
             setupAvatarColor(sender, incoming: false)
             senderImageUrl = ""
         }
+        
+        setupTestModel()
         
         // *** STEP 2: SETUP FIREBASES
         ref = Firebase(url: "https://swift-chat.firebaseio.com/")

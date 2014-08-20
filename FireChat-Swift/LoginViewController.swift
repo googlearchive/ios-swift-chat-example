@@ -26,14 +26,6 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
         super.viewWillAppear(animated)
         title = "Fire Chat"
         currentTwitterHandle = nil
-        
-        authRef.checkAuthStatusWithBlock { (error, user) -> Void in
-            if error != nil {
-                println(error!)
-            } else if user != nil {
-                self.performSegueWithIdentifier("TWITTER_LOGIN", sender: user)
-            }
-        }
     }
     
     @IBAction func login(sender: UIButton) {
