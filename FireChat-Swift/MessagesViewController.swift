@@ -19,10 +19,10 @@ class MessagesViewController: JSQMessagesViewController {
     var senderImageUrl: String!
     var batchMessages = true
     
-    // *** STORE REF
+    // *** STEP 1: STORE FIREBASE REFERENCES
     var ref: Firebase!
     var messagesRef: Firebase!
-    // *** END STORE REF
+    // *** END STEP 1
     
     func setupTestModelAvatars() {
         let outgoingDiameter = collectionView.collectionViewLayout.outgoingAvatarViewSize.width
@@ -83,12 +83,12 @@ class MessagesViewController: JSQMessagesViewController {
             senderImageUrl = ""
         }
         
-        // *** SETUP FIREBASES
+        // *** STEP 2: SETUP FIREBASES
         ref = Firebase(url: "https://swift-chat.firebaseio.com/")
         messagesRef = ref.childByAppendingPath("messages")
-        // *** END SETUP FIREBASES
+        // *** END STEP 2
         
-        // *** GOT A MESSAGE FROM FIREBASE
+        // *** STEP 3: RECEIVE MESSAGES FROM FIREBASE
         messagesRef.observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) in
             let messageText = snapshot.value["text"] as? String
             let messageSender = snapshot.value["sender"] as? String
@@ -98,7 +98,7 @@ class MessagesViewController: JSQMessagesViewController {
             self.messages.append(message)
             self.finishReceivingMessage()
         })
-        // *** END GOT A MESSAGE FROM FIREBASE
+        // *** END STEP 3
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -126,9 +126,9 @@ class MessagesViewController: JSQMessagesViewController {
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, sender: String!, date: NSDate!) {
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
         
-        // *** ADD A MESSAGE TO FIREBASE
+        // *** STEP 4: ADD A MESSAGE TO FIREBASE
         messagesRef.childByAutoId().setValue(["text":text, "sender":sender, "imageUrl":senderImageUrl])
-        // *** END ADD A MESSAGE TO FIREBASE
+        // *** END STEP 4
         
         finishSendingMessage()
     }
