@@ -21,8 +21,6 @@ class MessagesViewController: JSQMessagesViewController {
     var authRef: FirebaseSimpleLogin!
     
     // *** STEP 1: STORE FIREBASE REFERENCES
-    var ref: Firebase!
-    var messagesRef: Firebase!
     // *** END STEP 1
     
     func setupTestModel() {
@@ -95,20 +93,9 @@ class MessagesViewController: JSQMessagesViewController {
         setupTestModel()
         
         // *** STEP 2: SETUP FIREBASES
-        ref = Firebase(url: "https://swift-chat.firebaseio.com/")
-        messagesRef = ref.childByAppendingPath("messages")
         // *** END STEP 2
         
         // *** STEP 3: RECEIVE MESSAGES FROM FIREBASE
-        messagesRef.observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) in
-            let messageText = snapshot.value["text"] as? String
-            let messageSender = snapshot.value["sender"] as? String
-            let messageImageUrl = snapshot.value["imageUrl"] as? String
-                
-            let message = Message(text: messageText, sender: messageSender, imageUrl: messageImageUrl)
-            self.messages.append(message)
-            self.finishReceivingMessage()
-        })
         // *** END STEP 3
     }
     
@@ -135,9 +122,11 @@ class MessagesViewController: JSQMessagesViewController {
     
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, sender: String!, date: NSDate!) {
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
-        
+            
+        let message = Message(text: text, sender: sender, imageUrl: senderImageUrl)
+        messages.append(message)
+
         // *** STEP 4: ADD A MESSAGE TO FIREBASE
-        messagesRef.childByAutoId().setValue(["text":text, "sender":sender, "imageUrl":senderImageUrl])
         // *** END STEP 4
         
         finishSendingMessage()
