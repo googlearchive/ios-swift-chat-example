@@ -21,27 +21,31 @@ class MessagesViewController: JSQMessagesViewController {
     var authRef: FirebaseSimpleLogin!
     
     // *** STEP 1: STORE FIREBASE REFERENCES
-    // *** END STEP 1
+    var messagesRef: Firebase!
+
+    func setupFirebase() {
+        // *** STEP 2: SETUP FIREBASE
+        messagesRef = Firebase(url: "https://swift-chat.firebaseio.com/messages")
+
+        // *** STEP 4: RECEIVE MESSAGES FROM FIREBASE
+        messagesRef.observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) in
+            let text = snapshot.value["text"] as? String
+            let sender = snapshot.value["sender"] as? String
+            let imageUrl = snapshot.value["imageUrl"] as? String
+            
+            let message = Message(text: text, sender: sender, imageUrl: imageUrl)
+            self.messages.append(message)
+            self.finishReceivingMessage()
+        })
+    }
     
-    func setupTestModel() {
-        let outgoingDiameter = collectionView.collectionViewLayout.outgoingAvatarViewSize.width
-        let incomingDiameter = collectionView.collectionViewLayout.incomingAvatarViewSize.width
-        let sbImage = JSQMessagesAvatarFactory.avatarWithUserInitials("SB", backgroundColor: UIColor.blueColor(), textColor: UIColor.blackColor(), font: UIFont.systemFontOfSize(CGFloat(14)), diameter: UInt(incomingDiameter))
-        let saImage = JSQMessagesAvatarFactory.avatarWithUserInitials("SA", backgroundColor: UIColor.greenColor(), textColor: UIColor.blackColor(), font: UIFont.systemFontOfSize(CGFloat(14)), diameter: UInt(outgoingDiameter))
-        let scImage = JSQMessagesAvatarFactory.avatarWithUserInitials("SC", backgroundColor: UIColor.redColor(), textColor: UIColor.blackColor(), font: UIFont.systemFontOfSize(CGFloat(14)), diameter: UInt(outgoingDiameter))
-        let anonImage = JSQMessagesAvatarFactory.avatarWithUserInitials("Anon", backgroundColor: UIColor.grayColor(), textColor: UIColor.blackColor(), font: UIFont.systemFontOfSize(CGFloat(14)), diameter: UInt(outgoingDiameter))
-        
-        avatars["Sender A"] = saImage
-        avatars["Sender B"] = sbImage
-        avatars["Sender C"] = scImage
-        avatars["Anonymous"] = anonImage
-        
-        messages = [
-            Message(text: "I'm so fast, I got here first.", sender: "Flash", imageUrl: "http://images.fanpop.com/images/image_uploads/Flash-logo-dc-comics-251206_1024_768.jpg"),
-            Message(text: "Well, I'm making sure all the data is stored.", sender:"Superman", imageUrl: "http://upload.wikimedia.org/wikipedia/en/7/73/Superman_shield.png"),
-            Message(text: "I make sure everything is remembered.", sender: "Professor X", imageUrl: "http://movietime.pl/wp-content/uploads/2014/05/x-men_logo_1-1.png"),
-            Message(text: "We'll keep everything simple and functioning.", sender: "Fantastic 4", imageUrl: "http://img1.wikia.nocookie.net/__cb20130719192836/p__/protagonist/images/e/e9/Fantastic_four_logo.jpg")
-        ]
+    func sendMessage(text: String!, sender: String!) {
+        // *** STEP 3: ADD A MESSAGE TO FIREBASE
+        messagesRef.childByAutoId().setValue([
+            "text":text,
+            "sender":sender,
+            "imageUrl":senderImageUrl
+        ])
     }
     
     func setupAvatarImage(name: String, imageUrl: String?, incoming: Bool) {
@@ -90,13 +94,7 @@ class MessagesViewController: JSQMessagesViewController {
             senderImageUrl = ""
         }
         
-        setupTestModel()
-        
-        // *** STEP 2: SETUP FIREBASES
-        // *** END STEP 2
-        
-        // *** STEP 3: RECEIVE MESSAGES FROM FIREBASE
-        // *** END STEP 3
+        setupFirebase()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -122,12 +120,8 @@ class MessagesViewController: JSQMessagesViewController {
     
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, sender: String!, date: NSDate!) {
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
-            
-        let message = Message(text: text, sender: sender, imageUrl: senderImageUrl)
-        messages.append(message)
 
-        // *** STEP 4: ADD A MESSAGE TO FIREBASE
-        // *** END STEP 4
+        sendMessage(text, sender: sender)
         
         finishSendingMessage()
     }
