@@ -10,7 +10,6 @@
 		5FCB62C1199E7C19008B93DB /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCB62C0199E7C19008B93DB /* MessagesViewController.swift */; };
 		5FF98CB219A51B8E0041E81A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF98CB119A51B8E0041E81A /* Message.swift */; };
 		5FFF76BF199C191F00AE0269 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFF76BE199C191F00AE0269 /* AppDelegate.swift */; };
-		5FFF76C1199C191F00AE0269 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFF76C0199C191F00AE0269 /* ViewController.swift */; };
 		5FFF76C4199C191F00AE0269 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FFF76C2199C191F00AE0269 /* Main.storyboard */; };
 		5FFF76C6199C191F00AE0269 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FFF76C5199C191F00AE0269 /* Images.xcassets */; };
 		5FFF76D2199C191F00AE0269 /* FireChat_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFF76D1199C191F00AE0269 /* FireChat_SwiftTests.swift */; };
@@ -96,7 +95,6 @@
 		5FFF76B9199C191F00AE0269 /* FireChat-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FireChat-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FFF76BD199C191F00AE0269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FFF76BE199C191F00AE0269 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5FFF76C0199C191F00AE0269 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5FFF76C3199C191F00AE0269 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5FFF76C5199C191F00AE0269 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5FFF76CB199C191F00AE0269 /* FireChat-SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FireChat-SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -274,7 +272,6 @@
 				5FFF7813199C364700AE0269 /* JSQDemoViewController.h */,
 				5FFF7814199C364700AE0269 /* JSQDemoViewController.m */,
 				5FFF76BE199C191F00AE0269 /* AppDelegate.swift */,
-				5FFF76C0199C191F00AE0269 /* ViewController.swift */,
 				5FFF76C2199C191F00AE0269 /* Main.storyboard */,
 				5FFF76C5199C191F00AE0269 /* Images.xcassets */,
 				5FFF76BC199C191F00AE0269 /* Supporting Files */,
@@ -627,7 +624,6 @@
 				5FFF77FD199C1F6C00AE0269 /* JSQMessagesCollectionViewCellOutgoing.m in Sources */,
 				5FFF7806199C1F6C00AE0269 /* JSQMessagesTypingIndicatorFooterView.m in Sources */,
 				5FFF77F7199C1F6C00AE0269 /* JSQMessagesCollectionViewLayoutAttributes.m in Sources */,
-				5FFF76C1199C191F00AE0269 /* ViewController.swift in Sources */,
 				5FFF77F1199C1F6C00AE0269 /* JSQMessagesAvatarFactory.m in Sources */,
 				5FFF77F8199C1F6C00AE0269 /* JSQMessage.m in Sources */,
 				5FFF77F3199C1F6C00AE0269 /* JSQMessagesTimestampFormatter.m in Sources */,
