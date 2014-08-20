@@ -18,6 +18,7 @@ class MessagesViewController: JSQMessagesViewController {
     var incomingBubbleImageView = JSQMessagesBubbleImageFactory.incomingMessageBubbleImageViewWithColor(UIColor.jsq_messageBubbleGreenColor())
     var senderImageUrl: String!
     var batchMessages = true
+    var authRef: FirebaseSimpleLogin!
     
     // *** STEP 1: STORE FIREBASE REFERENCES
     var ref: Firebase!
@@ -109,8 +110,7 @@ class MessagesViewController: JSQMessagesViewController {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        if ref != nil {
-            var authRef = FirebaseSimpleLogin(ref: ref)
+        if authRef != nil {
             authRef.logout()
         }
     }

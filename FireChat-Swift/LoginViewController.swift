@@ -130,6 +130,7 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
         var messagesVc = segue.destinationViewController as MessagesViewController
         if let user = sender as? FAUser {
             messagesVc.user = user
+            messagesVc.authRef = authRef
             messagesVc.sender = user.thirdPartyUserData["username"]! as String
         }
     }
