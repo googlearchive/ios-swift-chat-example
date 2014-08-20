@@ -118,7 +118,6 @@ that will automatically be populated by the Firebase Server.
 
 #define kFirebaseServerValueTimestamp @{ @".sv": @"timestamp" }
 
-
 /**
  * The same as setValue: with a block that gets triggered after the write operation has
  * been committed to the Firebase servers.
@@ -234,13 +233,13 @@ Use removeObserverWithHandle: to stop receiving updates.
  
 Supported events types for all realtime observers are specified in FEventType as:
 
-    typedef enum {
+    typedef NS_ENUM(NSInteger, FEventType) {
       FEventTypeChildAdded,    // 0, fired when a new child node is added to a location
       FEventTypeChildRemoved,  // 1, fired when a child node is removed from a location
       FEventTypeChildChanged,  // 2, fired when a child node at a location changes
       FEventTypeChildMoved,    // 3, fired when a child node moves relative to the other child nodes at a location
       FEventTypeValue          // 4, fired when any data changes at a location and, recursively, any children
-    } FEventType;
+    };
 
 @param eventType The type of event to listen for.
 @param block The block that should be called with initial data and updates as a FDataSnapshot.

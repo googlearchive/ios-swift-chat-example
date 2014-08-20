@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5FCB62C1199E7C19008B93DB /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FCB62C0199E7C19008B93DB /* MessagesViewController.swift */; };
+		5FF98CB219A51B8E0041E81A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF98CB119A51B8E0041E81A /* Message.swift */; };
 		5FFF76BF199C191F00AE0269 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFF76BE199C191F00AE0269 /* AppDelegate.swift */; };
 		5FFF76C1199C191F00AE0269 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFF76C0199C191F00AE0269 /* ViewController.swift */; };
 		5FFF76C4199C191F00AE0269 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FFF76C2199C191F00AE0269 /* Main.storyboard */; };
@@ -91,6 +92,7 @@
 
 /* Begin PBXFileReference section */
 		5FCB62C0199E7C19008B93DB /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		5FF98CB119A51B8E0041E81A /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		5FFF76B9199C191F00AE0269 /* FireChat-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FireChat-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FFF76BD199C191F00AE0269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FFF76BE199C191F00AE0269 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				5FFF76E9199C19EC00AE0269 /* FireChat-Swift-Bridging-Header.h */,
 				5FCB62C0199E7C19008B93DB /* MessagesViewController.swift */,
 				638910FF199E968100B8998F /* LoginViewController.swift */,
+				5FF98CB119A51B8E0041E81A /* Message.swift */,
 			);
 			path = "FireChat-Swift";
 			sourceTree = "<group>";
@@ -618,6 +621,7 @@
 				5FFF77FB199C1F6C00AE0269 /* JSQMessagesCollectionViewCellIncoming.m in Sources */,
 				5FFF77E9199C1F6C00AE0269 /* JSQSystemSoundPlayer+JSQMessages.m in Sources */,
 				5FFF7815199C364700AE0269 /* JSQDemoViewController.m in Sources */,
+				5FF98CB219A51B8E0041E81A /* Message.swift in Sources */,
 				63891100199E968100B8998F /* LoginViewController.swift in Sources */,
 				5FFF77EB199C1F6C00AE0269 /* UIColor+JSQMessages.m in Sources */,
 				5FFF77FD199C1F6C00AE0269 /* JSQMessagesCollectionViewCellOutgoing.m in Sources */,
@@ -757,6 +761,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "FireChat-Swift/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -777,6 +782,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "FireChat-Swift/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
