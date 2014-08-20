@@ -14,16 +14,13 @@ class Message : NSObject, JSQMessageData {
     var date_: NSDate
     var imageUrl_: String?
     
-    init(text: String!, sender: String!) {
-        self.text_ = text
-        self.sender_ = sender
-        self.date_ = NSDate()
-        self.imageUrl_ = nil
+    convenience init(text: String?, sender: String?) {
+        self.init(text: text, sender: sender, imageUrl: nil)
     }
     
-    init(text: String!, sender: String!, imageUrl: String?) {
-        self.text_ = text
-        self.sender_ = sender
+    init(text: String?, sender: String?, imageUrl: String?) {
+        self.text_ = text!
+        self.sender_ = sender!
         self.date_ = NSDate()
         self.imageUrl_ = imageUrl
     }

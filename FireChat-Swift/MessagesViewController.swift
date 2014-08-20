@@ -89,9 +89,9 @@ class MessagesViewController: JSQMessagesViewController {
         
         // *** GOT A MESSAGE FROM FIREBASE
         messagesRef.observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) in
-            let messageText = snapshot.value["text"]! as? String
-            let messageSender = snapshot.value["sender"]! as? String
-            let messageImageUrl = snapshot.value["imageUrl"]! as? String
+            let messageText = snapshot.value["text"] as? String
+            let messageSender = snapshot.value["sender"] as? String
+            let messageImageUrl = snapshot.value["imageUrl"] as? String
                 
             let message = Message(text: messageText, sender: messageSender, imageUrl: messageImageUrl)
             self.messages.append(message)
