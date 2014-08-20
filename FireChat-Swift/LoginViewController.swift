@@ -24,7 +24,7 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        title = "Fire Chat"
         currentTwitterHandle = nil
         
         authRef.checkAuthStatusWithBlock { (error, user) -> Void in

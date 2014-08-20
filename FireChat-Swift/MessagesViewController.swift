@@ -74,6 +74,7 @@ class MessagesViewController: JSQMessagesViewController {
         super.viewDidLoad()
         inputToolbar.contentView.leftBarButtonItem = nil
         automaticallyScrollsToMostRecentMessage = true
+        navigationController.navigationBar.topItem.title = "Logout"
         
         sender = sender ? sender : "Anonymous"
         if let urlString = user!.thirdPartyUserData["profile_image_url"]! as? String {
