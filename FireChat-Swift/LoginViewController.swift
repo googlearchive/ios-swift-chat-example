@@ -13,11 +13,27 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
     @IBOutlet var btLogin: UIButton!
     
     var currentTwitterHandle: String?
+    var ref: Firebase!
+    var authRef: FirebaseSimpleLogin!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        ref = Firebase(url:"https://swift-chat.firebaseio.com")
+        authRef = FirebaseSimpleLogin(ref:ref)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
+        currentTwitterHandle = nil
+        
+        authRef.checkAuthStatusWithBlock { (error, user) -> Void in
+            if error != nil {
+                println(error!)
+            } else if user != nil {
+                self.performSegueWithIdentifier("TWITTER_LOGIN", sender: user)
+            }
+        }
     }
     
     @IBAction func login(sender: UIButton) {
@@ -25,8 +41,6 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
     }
 
     func authWithTwitter() {
-        var myRef = Firebase(url:"https://swift-chat.firebaseio.com")
-        var authRef = FirebaseSimpleLogin(ref:myRef)
         println("timing: authWithTwitter \(currentTwitterHandle)")
         
         if currentTwitterHandle != nil {
@@ -78,8 +92,7 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
             
         }
     }
-
-
+    
     func selectTwitterAccount(accounts: NSArray) {
         var selectUserActionSheet = UIActionSheet(title: "Select Twitter Account", delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: "Destruct", otherButtonTitles: "Other")
         
@@ -89,7 +102,6 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
         
         selectUserActionSheet.cancelButtonIndex = selectUserActionSheet.addButtonWithTitle("Cancel")
         selectUserActionSheet.showInView(self.view);
-        
     }
     
     func handleMultipleTwitterAccounts(accounts: NSArray) {

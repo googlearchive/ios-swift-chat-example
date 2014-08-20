@@ -71,6 +71,7 @@ class MessagesViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        inputToolbar.contentView.leftBarButtonItem = nil
         automaticallyScrollsToMostRecentMessage = true
         
         sender = sender ? sender : "Anonymous"
@@ -103,6 +104,15 @@ class MessagesViewController: JSQMessagesViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         collectionView.collectionViewLayout.springinessEnabled = true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if ref != nil {
+            var authRef = FirebaseSimpleLogin(ref: ref)
+            authRef.logout()
+        }
     }
     
     // ACTIONS
