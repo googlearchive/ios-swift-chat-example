@@ -32,14 +32,24 @@ class MessagesViewController: JSQMessagesViewController {
     }
     
     func setupUserAvatar() {
-        if sender == "Anonymous" {
-            return
-        }
+        let outgoingDiameter = UInt(collectionView.collectionViewLayout.outgoingAvatarViewSize.width)
         
-        let outgoingDiameter = collectionView.collectionViewLayout.outgoingAvatarViewSize.width
-        let initials : String? = sender.substringToIndex(advance(sender.startIndex, 2))
-        let userImage = JSQMessagesAvatarFactory.avatarWithUserInitials(initials, backgroundColor: UIColor.redColor(), textColor: UIColor.blackColor(), font: UIFont.systemFontOfSize(CGFloat(14)), diameter: UInt(outgoingDiameter))
-        avatars[sender] = userImage
+        if let urlString = user!.thirdPartyUserData["profile_image_url"]! as? String {
+            let url = NSURL(string: urlString)
+            let image = UIImage(data: NSData(contentsOfURL: url))
+            let avatarImage = JSQMessagesAvatarFactory.avatarWithImage(image, diameter: outgoingDiameter)
+        
+            if let userRef = ref.childByAppendingPath("users").childByAppendingPath(user?.uid) {
+                userRef.setValue(["imageUrl": urlString])
+            }
+            
+            avatars[sender] = avatarImage
+        } else {
+        
+        // For anonymous senders we want to do this.
+        //        let initials : String? = sender.substringToIndex(advance(sender.startIndex, 2))
+        //        let userImage = JSQMessagesAvatarFactory.avatarWithUserInitials(initials, backgroundColor: UIColor.redColor(), textColor: UIColor.blackColor(), font: UIFont.systemFontOfSize(CGFloat(14)), diameter: UInt(outgoingDiameter))
+        }
     }
     
     override func viewDidLoad() {
