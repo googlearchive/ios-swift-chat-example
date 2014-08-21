@@ -48,6 +48,11 @@ class MessagesViewController: JSQMessagesViewController {
         ])
     }
     
+    func oldSendMessage(text: String!, sender: String!) {
+        let message = Message(text: text, sender: sender, imageUrl: senderImageUrl)
+        messages.append(message)
+    }
+    
     func setupAvatarImage(name: String, imageUrl: String?, incoming: Bool) {
         if imageUrl == nil ||  countElements(imageUrl!) == 0 {
             setupAvatarColor(name, incoming: incoming)
