@@ -21,16 +21,31 @@ class MessagesViewController: JSQMessagesViewController {
     var authRef: FirebaseSimpleLogin!
     
     // *** STEP 1: STORE FIREBASE REFERENCES
+    var messagesRef: Firebase!
 
     func setupFirebase() {
         // *** STEP 2: SETUP FIREBASE
+        messagesRef = Firebase(url: "https://swift-chat.firebaseio.com/messages")
 
         // *** STEP 4: RECEIVE MESSAGES FROM FIREBASE
+        messagesRef.observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) in
+            let text = snapshot.value["text"] as? String
+            let sender = snapshot.value["sender"] as? String
+            let imageUrl = snapshot.value["imageUrl"] as? String
+            
+            let message = Message(text: text, sender: sender, imageUrl: imageUrl)
+            self.messages.append(message)
+            self.finishReceivingMessage()
+        })
     }
     
     func sendMessage(text: String!, sender: String!) {
         // *** STEP 3: ADD A MESSAGE TO FIREBASE
-        tempSendMessage(text, sender: sender)
+        messagesRef.childByAutoId().setValue([
+            "text":text,
+            "sender":sender,
+            "imageUrl":senderImageUrl
+        ])
     }
     
     func tempSendMessage(text: String!, sender: String!) {
