@@ -33,13 +33,10 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
     }
 
     func authWithTwitter() {
-        println("timing: authWithTwitter \(currentTwitterHandle)")
-        
         if currentTwitterHandle != nil {
             
             authRef.loginToTwitterAppWithId("S40X72gZw8JSoDVjWtwidpk2r",
                 multipleAccountsHandler: { usernames -> Int32 in
-                    println("timing: authRef.loginToTwitter")
                     
                     if let usernamesArray = usernames as? [String] {
                         
@@ -51,8 +48,7 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
                     
                     return 1;
                 }, withCompletionBlock: { error, user in
-                    println("timing: authRef.withCompletionBlock")
-                    if error {
+                    if error != nil {
                         // There was an error authenticating
                     } else {
                         // We have an authenticated Twitter user
@@ -64,13 +60,13 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
             })
             
         } else {
-            var accountStore = ACAccountStore();
-            var accountType = accountStore.accountTypeWithAccountTypeIdentifier(ACAccountTypeIdentifierTwitter);
+            var accountStore = ACAccountStore()
+            var accountType = accountStore.accountTypeWithAccountTypeIdentifier(ACAccountTypeIdentifierTwitter)
             
             accountStore.requestAccessToAccountsWithType(accountType, options: nil, completion: { granted, error -> Void in
                 if granted {
                     
-                    var accounts = accountStore.accountsWithAccountType(accountType)
+                    var accounts = accountStore.accountsWithAccountType(accountType) as [ACAccount]
                     
                     dispatch_async(dispatch_get_main_queue()) {
                         self.handleMultipleTwitterAccounts(accounts)
@@ -85,7 +81,7 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
         }
     }
     
-    func selectTwitterAccount(accounts: NSArray) {
+    func selectTwitterAccount(accounts: [ACAccount]) {
         var selectUserActionSheet = UIActionSheet(title: "Select Twitter Account", delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: "Destruct", otherButtonTitles: "Other")
         
         for account in accounts {
@@ -96,14 +92,14 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
         selectUserActionSheet.showInView(self.view);
     }
     
-    func handleMultipleTwitterAccounts(accounts: NSArray) {
+    func handleMultipleTwitterAccounts(accounts: [ACAccount]) {
 
         switch accounts.count {
         case 0:
             UIApplication.sharedApplication().openURL(NSURL(string: "https://twitter.com/signup"))
             break;
         case 1:
-            self.currentTwitterHandle = accounts.firstObject.username
+            self.currentTwitterHandle = accounts[0].username
             self.authWithTwitter()
             break;
         default:
@@ -113,7 +109,6 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
     }
     
     func actionSheet(actionSheet: UIActionSheet!, clickedButtonAtIndex buttonIndex: Int) {
-        println("timing: actionsheet triggered")
         self.currentTwitterHandle = actionSheet.buttonTitleAtIndex(buttonIndex)
         self.authWithTwitter()
     }

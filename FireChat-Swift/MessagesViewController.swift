@@ -61,7 +61,7 @@ class MessagesViewController: JSQMessagesViewController {
         
         let diameter = incoming ? UInt(collectionView.collectionViewLayout.incomingAvatarViewSize.width) : UInt(collectionView.collectionViewLayout.outgoingAvatarViewSize.width)
         
-        let url = NSURL(string: imageUrl)
+        let url = NSURL(string: imageUrl!)
         let image = UIImage(data: NSData(contentsOfURL: url))
         let avatarImage = JSQMessagesAvatarFactory.avatarWithImage(image, diameter: diameter)
         
@@ -90,7 +90,7 @@ class MessagesViewController: JSQMessagesViewController {
         automaticallyScrollsToMostRecentMessage = true
         navigationController.navigationBar.topItem.title = "Logout"
         
-        sender = sender ? sender : "Anonymous"
+        sender = (sender != nil) ? sender : "Anonymous"
         if let urlString = user!.thirdPartyUserData["profile_image_url"]! as? String {
             setupAvatarImage(sender, imageUrl: urlString, incoming: false)
             senderImageUrl = urlString
