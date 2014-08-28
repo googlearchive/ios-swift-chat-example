@@ -1,7 +1,7 @@
-firechat-swift
+Swift Chat Example
 ==============
 
-FireChat implemented in Swift! This is made to work with Xcode 6 Beta 5. It also works in Xcode 6 Beta 6. 
+Chat implemented in Swift! This is made to work with Xcode 6 Beta 5. It also works in Xcode 6 Beta 6. 
 
 If you're getting a random compiler error, go to ~/Library/Developer/Xcode/DerivedData 
 and delete the directory starting with FireChat-Swift. 
