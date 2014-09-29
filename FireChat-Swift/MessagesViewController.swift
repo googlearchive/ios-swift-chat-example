@@ -88,7 +88,7 @@ class MessagesViewController: JSQMessagesViewController {
         super.viewDidLoad()
         inputToolbar.contentView.leftBarButtonItem = nil
         automaticallyScrollsToMostRecentMessage = true
-        navigationController.navigationBar.topItem.title = "Logout"
+        navigationController?.navigationBar.topItem?.title = "Logout"
         
         sender = (sender != nil) ? sender : "Anonymous"
         if let urlString = user!.thirdPartyUserData["profile_image_url"]! as? String {
@@ -159,11 +159,11 @@ class MessagesViewController: JSQMessagesViewController {
         }
     }
     
-    override func collectionView(collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return messages.count
     }
     
-    override func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell! {
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = super.collectionView(collectionView, cellForItemAtIndexPath: indexPath) as JSQMessagesCollectionViewCell
         
         let message = messages[indexPath.item]

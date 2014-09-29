@@ -113,7 +113,7 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
         self.authWithTwitter()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         var messagesVc = segue.destinationViewController as MessagesViewController
         if let user = sender as? FAUser {
             messagesVc.user = user
