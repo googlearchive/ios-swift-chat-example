@@ -10,7 +10,7 @@ import UIKit
 
 class MessagesViewController: JSQMessagesViewController {
     
-    var user: FAUser?
+    var user: FAuthData?
     
     var messages = [Message]()
     var avatars = Dictionary<String, UIImage>()
@@ -18,7 +18,7 @@ class MessagesViewController: JSQMessagesViewController {
     var incomingBubbleImageView = JSQMessagesBubbleImageFactory.incomingMessageBubbleImageViewWithColor(UIColor.jsq_messageBubbleGreenColor())
     var senderImageUrl: String!
     var batchMessages = true
-    var authRef: FirebaseSimpleLogin!
+    var ref: Firebase!
     
     // *** STEP 1: STORE FIREBASE REFERENCES
     var messagesRef: Firebase!
@@ -91,7 +91,8 @@ class MessagesViewController: JSQMessagesViewController {
         navigationController?.navigationBar.topItem?.title = "Logout"
         
         sender = (sender != nil) ? sender : "Anonymous"
-        if let urlString = user!.thirdPartyUserData["profile_image_url"]! as? String {
+        let profileImageUrl = (user?.providerData["twitter"]?["cachedUserProfile"])?["profile_image_url_https"]
+        if let urlString = profileImageUrl as? String {
             setupAvatarImage(sender, imageUrl: urlString, incoming: false)
             senderImageUrl = urlString
         } else {
@@ -110,8 +111,8 @@ class MessagesViewController: JSQMessagesViewController {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
-        if authRef != nil {
-            authRef.logout()
+        if ref != nil {
+            ref.unauth()
         }
     }
     
