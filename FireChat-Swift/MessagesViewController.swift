@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 class MessagesViewController: JSQMessagesViewController {
     
@@ -91,8 +92,8 @@ class MessagesViewController: JSQMessagesViewController {
         navigationController?.navigationBar.topItem?.title = "Logout"
         
         sender = (sender != nil) ? sender : "Anonymous"
-        let profileImageUrl = (user?.providerData["twitter"]?["cachedUserProfile"])?["profile_image_url_https"]
-        if let urlString = profileImageUrl as? String {
+        let profileImageUrl = user?.providerData["twitter"]?["cachedUserProfile"]??["profile_image_url_https"] as? NSString
+        if let urlString = profileImageUrl {
             setupAvatarImage(sender, imageUrl: urlString, incoming: false)
             senderImageUrl = urlString
         } else {
