@@ -11,18 +11,30 @@
 #define Firebase_FAuthenticationTypes_h
 
 typedef NS_ENUM(NSInteger, FAuthenticationError) {
-    FAuthenticationErrorUserDoesNotExist = -1,
-    FAuthenticationErrorInvalidPassword = -2,
-    FAuthenticationErrorAccessNotGranted = -3,
-    FAuthenticationErrorAccountNotFound = -4,
-    FAuthenticationErrorAuthenticationProviderNotEnabled = -5,
-    FAuthenticationErrorInvalidEmail = -6,
-    FAuthenticationErrorBadSystemToken = -7,
-    FAuthenticationErrorFromProvider = -8,
-    FAuthenticationErrorInvalidConfiguration = -9,
-    FAuthenticationErrorInvalidCredentials = -10,
-    FAuthenticationErrorEmailTaken = -11,
-    FAuthenticationErrorPreempted = -12,
+    // Developer / Config Errors
+    FAuthenticationErrorProviderDisabled = -1,
+    FAuthenticationErrorInvalidConfiguration = -2,
+    FAuthenticationErrorInvalidOrigin = -3,
+    FAuthenticationErrorInvalidProvider = -4,
+
+    // User Errors (Email / Password)
+    FAuthenticationErrorInvalidEmail = -5,
+    FAuthenticationErrorInvalidPassword = -6,
+    FAuthenticationErrorInvalidToken = -7,
+    FAuthenticationErrorUserDoesNotExist = -8,
+    FAuthenticationErrorEmailTaken = -9,
+
+    // User Errors (Facebook / Twitter / Github / Google)
+    FAuthenticationErrorDeniedByUser = -10,
+    FAuthenticationErrorInvalidCredentials = -11,
+    FAuthenticationErrorInvalidArguments = -12,
+    FAuthenticationErrorProviderError = -13,
+    FAuthenticationErrorLimitsExceeded = -14,
+
+    // Client side errors
+    FAuthenticationErrorNetworkError = -15,
+    FAuthenticationErrorPreempted = -16,
+
     FAuthenticationErrorUnknown = -9999
 };
 

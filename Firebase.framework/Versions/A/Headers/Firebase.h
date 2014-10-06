@@ -639,7 +639,7 @@ Supported events types for all realtime observers are specified in FEventType as
 *
 * @param block A block to receive the results of the authentication attempt.
 */
-- (void) authAnonymouslyWithCompletionBlock:(void (^)(NSError *error, FAuthData *user))block;
+- (void) authAnonymouslyWithCompletionBlock:(void (^)(NSError *error, FAuthData *authData))block;
 
 /**
 * Attempts to authenticate to Firebase with the given credentials. The block will receive the results of the attempt.
@@ -666,9 +666,9 @@ Supported events types for all realtime observers are specified in FEventType as
 /**
 * Authenticate to authenticate to Firebase with an OAuth token from a provider.
 *
-* This method works with TODO list what works with this
+* This method works with current OAuth 2.0 providers such as Facebook, Google+, and Github.
 *
-* For other providers that Firebase supports, such as Twitter, please use authWithOAuthProvider:parameters:withCompletionBlock:.
+* For other providers that Firebase supports which require additional parameters for login, such as Twitter, please use authWithOAuthProvider:parameters:withCompletionBlock:.
 *
 * @param provider The provider, all lower case with no spaces.
 * @param oauthToken The OAuth Token to authenticate with the provider

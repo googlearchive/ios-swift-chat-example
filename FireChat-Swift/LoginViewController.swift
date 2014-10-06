@@ -87,7 +87,7 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
         if let authData = sender as? FAuthData {
             messagesVc.user = authData
             messagesVc.ref = ref
-            messagesVc.sender = authData.providerData["twitter"]?["username"] as? NSString
+            messagesVc.sender = authData.providerData["username"] as? NSString
         }
     }
 }
