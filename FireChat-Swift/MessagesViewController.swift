@@ -63,7 +63,7 @@ class MessagesViewController: JSQMessagesViewController {
         let diameter = incoming ? UInt(collectionView.collectionViewLayout.incomingAvatarViewSize.width) : UInt(collectionView.collectionViewLayout.outgoingAvatarViewSize.width)
         
         let url = NSURL(string: imageUrl!)
-        let image = UIImage(data: NSData(contentsOfURL: url))
+        let image = UIImage(data: NSData(contentsOfURL: url!)!)
         let avatarImage = JSQMessagesAvatarFactory.avatarWithImage(image, diameter: diameter)
         
         avatars[name] = avatarImage
