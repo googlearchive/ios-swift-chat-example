@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MessagesViewController.swift
 //  FireChat-Swift
 //
 //  Created by Katherine Fang on 8/13/14.
