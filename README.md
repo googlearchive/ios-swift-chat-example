@@ -32,7 +32,8 @@ This example still has some rough edges around authentication. Push through them
 0. Edit [`LoginViewController.swift`](FireChat-Swift/LoginViewController.swift) and change `swift-chat.firebaseio.com` to point to your Firebase. Update `twitterAppId` on the next line to match your Twitter API Key.
 0. Run the app on a device or simulator
 0. On your iOS device or simulator, go to Settings, scroll down to the accounts section (which contains Twitter, Facebook, Flickr and Vimeo), select Twitter -> Add Account.
-    ![no, that's not my password, but if you can figure out what I typed, tweet at me, and I'll send you Firebase swag](setup-twitter.gif)
+
+![no, that's not my password, but if you can figure out what I typed, tweet at me, and I'll send you Firebase swag](setup-twitter.gif)
 
 
 ## License
