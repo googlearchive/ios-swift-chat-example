@@ -20,6 +20,7 @@ class MessagesViewController: JSQMessagesViewController {
     var senderImageUrl: String!
     var batchMessages = true
     var ref: Firebase!
+
     
     // *** STEP 1: STORE FIREBASE REFERENCES
     var messagesRef: Firebase!
@@ -28,8 +29,8 @@ class MessagesViewController: JSQMessagesViewController {
         // *** STEP 2: SETUP FIREBASE
         messagesRef = Firebase(url: "https://swift-chat.firebaseio.com/messages")
 
-        // *** STEP 4: RECEIVE MESSAGES FROM FIREBASE
-        messagesRef.observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) in
+        // *** STEP 4: RECEIVE MESSAGES FROM FIREBASE (limited to latest 25 messages)
+        messagesRef.queryLimitedToNumberOfChildren(25).observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) in
             let text = snapshot.value["text"] as? String
             let sender = snapshot.value["sender"] as? String
             let imageUrl = snapshot.value["imageUrl"] as? String
@@ -55,23 +56,20 @@ class MessagesViewController: JSQMessagesViewController {
     }
     
     func setupAvatarImage(name: String, imageUrl: String?, incoming: Bool) {
-        if imageUrl == nil ||  countElements(imageUrl!) == 0 {
-            setupAvatarColor(name, incoming: incoming)
-            return
+        if let stringUrl = imageUrl {
+            if let url = NSURL(string: stringUrl) {
+                if let data = NSData(contentsOfURL: url) {
+                    let image = UIImage(data: data)
+                    let diameter = incoming ? UInt(collectionView.collectionViewLayout.incomingAvatarViewSize.width) : UInt(collectionView.collectionViewLayout.outgoingAvatarViewSize.width)
+                    let avatarImage = JSQMessagesAvatarFactory.avatarWithImage(image, diameter: diameter)
+                    avatars[name] = avatarImage
+                    return
+                }
+            }
         }
         
-        let diameter = incoming ? UInt(collectionView.collectionViewLayout.incomingAvatarViewSize.width) : UInt(collectionView.collectionViewLayout.outgoingAvatarViewSize.width)
-        
-        let defaultUrl = NSURL(string: "https://g.twimg.com/Twitter_logo_blue.png") // Twitter Bird as default avatar
-        let defaultData = NSData(contentsOfURL: defaultUrl!)
-        var image = UIImage(data: defaultData!)
-        let url = NSURL(string: imageUrl!)
-        if let customData = NSData(contentsOfURL: url!) {
-            image = UIImage(data: customData)
-        }
-        let avatarImage = JSQMessagesAvatarFactory.avatarWithImage(image, diameter: diameter)
-        
-        avatars[name] = avatarImage
+        // At some point, we failed at getting the image (probably broken URL), so default to avatarColor
+        setupAvatarColor(name, incoming: incoming)
     }
     
     func setupAvatarColor(name: String, incoming: Bool) {
