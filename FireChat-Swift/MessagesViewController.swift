@@ -62,8 +62,13 @@ class MessagesViewController: JSQMessagesViewController {
         
         let diameter = incoming ? UInt(collectionView.collectionViewLayout.incomingAvatarViewSize.width) : UInt(collectionView.collectionViewLayout.outgoingAvatarViewSize.width)
         
+        let defaultUrl = NSURL(string: "https://g.twimg.com/Twitter_logo_blue.png") // Twitter Bird as default avatar
+        let defaultData = NSData(contentsOfURL: defaultUrl!)
+        var image = UIImage(data: defaultData!)
         let url = NSURL(string: imageUrl!)
-        let image = UIImage(data: NSData(contentsOfURL: url!)!)
+        if let customData = NSData(contentsOfURL: url!) {
+            image = UIImage(data: customData)
+        }
         let avatarImage = JSQMessagesAvatarFactory.avatarWithImage(image, diameter: diameter)
         
         avatars[name] = avatarImage
