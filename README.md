@@ -26,7 +26,7 @@ This example still has some rough edges around authentication. Push through them
 ### Configure Login
 
 0. Create a [new Twitter app](https://apps.twitter.com/) to use for login.
-0. Go to your [Firebase Dashbaord](https://www.firebase.com/account/) and ndavigate to your Firebase.
+0. Go to your [Firebase Dashbaord](https://www.firebase.com/account/) and navigate to your Firebase.
 0. Click 'Login & Auth' in the left side menu. Select 'Twitter' and check the box to 'Enable Twitter Login'
 0. Paste your Twitter API Key and API Secret into the form.
 0. Edit [`LoginViewController.swift`](FireChat-Swift/LoginViewController.swift) and change `swift-chat.firebaseio.com` to point to your Firebase. Update `twitterAppId` on the next line to match your Twitter API Key.
