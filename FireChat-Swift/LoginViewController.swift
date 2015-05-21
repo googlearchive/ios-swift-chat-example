@@ -33,7 +33,7 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
 
     func authWithTwitter() {
         authHelper.selectTwitterAccountWithCallback { (error, accounts) -> Void in
-            self.accounts = accounts as [ACAccount]
+            self.accounts = accounts as! [ACAccount]
             self.handleMultipleTwitterAccounts(self.accounts)
         }
     }
@@ -83,11 +83,11 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        var messagesVc = segue.destinationViewController as MessagesViewController
+        var messagesVc = segue.destinationViewController as! MessagesViewController
         if let authData = sender as? FAuthData {
             messagesVc.user = authData
             messagesVc.ref = ref
-            messagesVc.sender = authData.providerData["username"] as? NSString
+            messagesVc.sender = authData.providerData["username"] as! NSString as String
         }
     }
 }
