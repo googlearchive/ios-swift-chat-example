@@ -1,7 +1,7 @@
 Swift Chat Example
 ==============
 
-Chat implemented in Swift! Now works in Xcode 6.0.1. 
+Chat implemented in Swift! Now works in Xcode 6.0.1.
 
 ![animated screenshot of this app in use](ios-chat.gif)
 
@@ -18,7 +18,7 @@ This example still has some rough edges around authentication. Push through them
 
 ### Configure Firebase
 
-0. Create a new [Firebase](https://www.firebase.com/).
+0. Go to your [Firebase Dashboard](https://www.firebase.com/account/) and create a new Firebase app.
 0. Clone this repo.
 0. Open `FireChat-Swift.xcodeproj` in Xcode.
 0. Edit [`MessagesViewController.swift`](FireChat-Swift/MessagesViewController.swift) and change `swift-chat.firebaseio.com` to point to your Firebase.
@@ -26,7 +26,7 @@ This example still has some rough edges around authentication. Push through them
 ### Configure Login
 
 0. Create a [new Twitter app](https://apps.twitter.com/) to use for login.
-0. Go to your [Firebase Dashbaord](https://www.firebase.com/account/) and navigate to your Firebase.
+0. Go to your [Firebase Dashboard](https://www.firebase.com/account/) and navigate to your Firebase app.
 0. Click 'Login & Auth' in the left side menu. Select 'Twitter' and check the box to 'Enable Twitter Login'
 0. Paste your Twitter API Key and API Secret into the form.
 0. Edit [`LoginViewController.swift`](FireChat-Swift/LoginViewController.swift) and change `swift-chat.firebaseio.com` to point to your Firebase. Update `twitterAppId` on the next line to match your Twitter API Key.
