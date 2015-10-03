@@ -60,7 +60,7 @@ class MessagesViewController: JSQMessagesViewController {
             if let url = NSURL(string: stringUrl) {
                 if let data = NSData(contentsOfURL: url) {
                     let image = UIImage(data: data)
-                    let diameter = incoming ? UInt(collectionView.collectionViewLayout.incomingAvatarViewSize.width) : UInt(collectionView.collectionViewLayout.outgoingAvatarViewSize.width)
+                    let diameter = incoming ? UInt(collectionView!.collectionViewLayout.incomingAvatarViewSize.width) : UInt(collectionView!.collectionViewLayout.outgoingAvatarViewSize.width)
                     let avatarImage = JSQMessagesAvatarFactory.avatarWithImage(image, diameter: diameter)
                     avatars[name] = avatarImage
                     return
@@ -73,7 +73,7 @@ class MessagesViewController: JSQMessagesViewController {
     }
     
     func setupAvatarColor(name: String, incoming: Bool) {
-        let diameter = incoming ? UInt(collectionView.collectionViewLayout.incomingAvatarViewSize.width) : UInt(collectionView.collectionViewLayout.outgoingAvatarViewSize.width)
+        let diameter = incoming ? UInt(collectionView!.collectionViewLayout.incomingAvatarViewSize.width) : UInt(collectionView!.collectionViewLayout.outgoingAvatarViewSize.width)
         
         let rgbValue = name.hash
         let r = CGFloat(Float((rgbValue & 0xFF0000) >> 16)/255.0)
@@ -81,8 +81,8 @@ class MessagesViewController: JSQMessagesViewController {
         let b = CGFloat(Float(rgbValue & 0xFF)/255.0)
         let color = UIColor(red: r, green: g, blue: b, alpha: 0.5)
         
-        let nameLength = count(name)
-        let initials : String? = name.substringToIndex(advance(sender.startIndex, min(3, nameLength)))
+        let nameLength = name.characters.count
+        let initials : String? = name.substringToIndex(sender.startIndex.advancedBy(min(3, nameLength)))
         let userImage = JSQMessagesAvatarFactory.avatarWithUserInitials(initials, backgroundColor: color, textColor: UIColor.blackColor(), font: UIFont.systemFontOfSize(CGFloat(13)), diameter: diameter)
         
         avatars[name] = userImage
@@ -90,7 +90,7 @@ class MessagesViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        inputToolbar.contentView.leftBarButtonItem = nil
+        inputToolbar!.contentView!.leftBarButtonItem = nil
         automaticallyScrollsToMostRecentMessage = true
         navigationController?.navigationBar.topItem?.title = "Logout"
         
@@ -109,7 +109,7 @@ class MessagesViewController: JSQMessagesViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        collectionView.collectionViewLayout.springinessEnabled = true
+        collectionView!.collectionViewLayout.springinessEnabled = true
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -137,7 +137,7 @@ class MessagesViewController: JSQMessagesViewController {
     }
     
     override func didPressAccessoryButton(sender: UIButton!) {
-        println("Camera pressed!")
+        print("Camera pressed!")
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
@@ -173,13 +173,13 @@ class MessagesViewController: JSQMessagesViewController {
         
         let message = messages[indexPath.item]
         if message.sender() == sender {
-            cell.textView.textColor = UIColor.blackColor()
+            cell.textView!.textColor = UIColor.blackColor()
         } else {
-            cell.textView.textColor = UIColor.whiteColor()
+            cell.textView!.textColor = UIColor.whiteColor()
         }
         
-        let attributes : [NSObject:AnyObject] = [NSForegroundColorAttributeName:cell.textView.textColor, NSUnderlineStyleAttributeName: 1]
-        cell.textView.linkTextAttributes = attributes
+        let attributes : [NSObject:AnyObject] = [NSForegroundColorAttributeName:cell.textView!.textColor, NSUnderlineStyleAttributeName: 1]
+        cell.textView!.linkTextAttributes = attributes
         
         //        cell.textView.linkTextAttributes = [NSForegroundColorAttributeName: cell.textView.textColor,
         //            NSUnderlineStyleAttributeName: NSUnderlineStyle.StyleSingle]
