@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5C880BE1B99588B39156D68833EAB2407BF6A594",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "90530B99EB0008E7A50951FDFBE02169118FA649" : 0,
+    "3295696B2ABB63B244A5608CBC7B986155E10CBC" : 0,
+    "5C880BE1B99588B39156D68833EAB2407BF6A594" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "96E77F1C-9044-4101-98FB-14166C7D9D17",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "90530B99EB0008E7A50951FDFBE02169118FA649" : "FireChat-SwiftJSQMessagesViewController",
+    "3295696B2ABB63B244A5608CBC7B986155E10CBC" : "FireChat-SwiftJSQSystemSoundPlayer",
+    "5C880BE1B99588B39156D68833EAB2407BF6A594" : "FireChat-Swift"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "FireChat-Swift",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "FireChat-Swift.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:jessesquires\/JSQSystemSoundPlayer.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3295696B2ABB63B244A5608CBC7B986155E10CBC"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:katfang\/firechat-swift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5C880BE1B99588B39156D68833EAB2407BF6A594"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:jessesquires\/JSQMessagesViewController.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "90530B99EB0008E7A50951FDFBE02169118FA649"
+    }
+  ]
+}

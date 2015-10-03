@@ -14,8 +14,6 @@
 		5FFF76C4199C191F00AE0269 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FFF76C2199C191F00AE0269 /* Main.storyboard */; };
 		5FFF76C6199C191F00AE0269 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FFF76C5199C191F00AE0269 /* Images.xcassets */; };
 		5FFF76D2199C191F00AE0269 /* FireChat_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFF76D1199C191F00AE0269 /* FireChat_SwiftTests.swift */; };
-		5FFF76DC199C192600AE0269 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFF76DB199C192600AE0269 /* libc++.dylib */; };
-		5FFF76DE199C192900AE0269 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFF76DD199C192900AE0269 /* libicucore.dylib */; };
 		5FFF76E0199C193200AE0269 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFF76DF199C193200AE0269 /* SystemConfiguration.framework */; };
 		5FFF76E2199C193700AE0269 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFF76E1199C193700AE0269 /* CFNetwork.framework */; };
 		5FFF76E4199C194800AE0269 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFF76E3199C194800AE0269 /* Security.framework */; };
@@ -77,6 +75,8 @@
 		63891102199EB21D00B8998F /* FirebaseSimpleLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63891101199EB21D00B8998F /* FirebaseSimpleLogin.framework */; };
 		63891104199EB24200B8998F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63891103199EB24200B8998F /* Accounts.framework */; };
 		63891106199EB24800B8998F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63891105199EB24800B8998F /* Social.framework */; };
+		D705A7E01BC02F1300258168 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D705A7DF1BC02F1300258168 /* libicucore.tbd */; };
+		D705A7E21BC02F1E00258168 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D705A7E11BC02F1E00258168 /* libc++.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,8 +102,6 @@
 		5FFF76CB199C191F00AE0269 /* FireChat-SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FireChat-SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FFF76D0199C191F00AE0269 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FFF76D1199C191F00AE0269 /* FireChat_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireChat_SwiftTests.swift; sourceTree = "<group>"; };
-		5FFF76DB199C192600AE0269 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
-		5FFF76DD199C192900AE0269 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		5FFF76DF199C193200AE0269 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5FFF76E1199C193700AE0269 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		5FFF76E3199C194800AE0269 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -194,6 +192,8 @@
 		63891101199EB21D00B8998F /* FirebaseSimpleLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FirebaseSimpleLogin.framework; sourceTree = "<group>"; };
 		63891103199EB24200B8998F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		63891105199EB24800B8998F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		D705A7DF1BC02F1300258168 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		D705A7E11BC02F1E00258168 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +201,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D705A7E21BC02F1E00258168 /* libc++.tbd in Frameworks */,
+				D705A7E01BC02F1300258168 /* libicucore.tbd in Frameworks */,
 				63891106199EB24800B8998F /* Social.framework in Frameworks */,
 				63891104199EB24200B8998F /* Accounts.framework in Frameworks */,
 				5FFF7812199C201200AE0269 /* UIKit.framework in Frameworks */,
@@ -210,8 +212,6 @@
 				5FFF76E8199C19CF00AE0269 /* Firebase.framework in Frameworks */,
 				5FFF76E2199C193700AE0269 /* CFNetwork.framework in Frameworks */,
 				5FFF76E0199C193200AE0269 /* SystemConfiguration.framework in Frameworks */,
-				5FFF76DE199C192900AE0269 /* libicucore.dylib in Frameworks */,
-				5FFF76DC199C192600AE0269 /* libc++.dylib in Frameworks */,
 				63891102199EB21D00B8998F /* FirebaseSimpleLogin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,6 +229,8 @@
 		5F5814D5199E8D65000E0E87 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D705A7E11BC02F1E00258168 /* libc++.tbd */,
+				D705A7DF1BC02F1300258168 /* libicucore.tbd */,
 				63891105199EB24800B8998F /* Social.framework */,
 				63891103199EB24200B8998F /* Accounts.framework */,
 				63891101199EB21D00B8998F /* FirebaseSimpleLogin.framework */,
@@ -241,8 +243,6 @@
 				5FFF76E3199C194800AE0269 /* Security.framework */,
 				5FFF76E1199C193700AE0269 /* CFNetwork.framework */,
 				5FFF76DF199C193200AE0269 /* SystemConfiguration.framework */,
-				5FFF76DD199C192900AE0269 /* libicucore.dylib */,
-				5FFF76DB199C192600AE0269 /* libc++.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -526,7 +526,9 @@
 		5FFF76B1199C191F00AE0269 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Firebase;
 				TargetAttributes = {
 					5FFF76B8199C191F00AE0269 = {
@@ -689,6 +691,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -760,6 +763,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.firebase.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FireChat-Swift/FireChat-Swift-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -781,6 +785,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.firebase.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FireChat-Swift/FireChat-Swift-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -801,6 +806,7 @@
 				);
 				INFOPLIST_FILE = "FireChat-SwiftTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.firebase.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FireChat-Swift.app/FireChat-Swift";
 			};
@@ -816,6 +822,7 @@
 				);
 				INFOPLIST_FILE = "FireChat-SwiftTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.firebase.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FireChat-Swift.app/FireChat-Swift";
 			};

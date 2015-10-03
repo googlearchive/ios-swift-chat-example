@@ -52,7 +52,7 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
     }
     
     func selectTwitterAccount(accounts: [ACAccount]) {
-        var selectUserActionSheet = UIActionSheet(title: "Select Twitter Account", delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: "Destruct", otherButtonTitles: "Other")
+        let selectUserActionSheet = UIActionSheet(title: "Select Twitter Account", delegate: self, cancelButtonTitle: "Cancel", destructiveButtonTitle: "Destruct", otherButtonTitles: "Other")
         
         for account in accounts {
             selectUserActionSheet.addButtonWithTitle(account.username)
@@ -83,7 +83,7 @@ class LoginViewController : UIViewController, UIActionSheetDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        var messagesVc = segue.destinationViewController as! MessagesViewController
+        let messagesVc = segue.destinationViewController as! MessagesViewController
         if let authData = sender as? FAuthData {
             messagesVc.user = authData
             messagesVc.ref = ref
