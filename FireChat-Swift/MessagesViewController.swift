@@ -123,7 +123,7 @@ class MessagesViewController: JSQMessagesViewController {
     // ACTIONS
     
     func receivedMessagePressed(sender: UIBarButtonItem) {
-        // Simulate reciving message
+        // Simulate receiving message
         showTypingIndicator = !showTypingIndicator
         scrollToBottomAnimated(true)
     }
