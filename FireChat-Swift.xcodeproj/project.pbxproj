@@ -526,6 +526,8 @@
 		5FFF76B1199C191F00AE0269 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = Firebase;
 				TargetAttributes = {
