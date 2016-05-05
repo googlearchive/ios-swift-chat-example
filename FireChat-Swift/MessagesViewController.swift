@@ -81,8 +81,8 @@ class MessagesViewController: JSQMessagesViewController {
         let b = CGFloat(Float(rgbValue & 0xFF)/255.0)
         let color = UIColor(red: r, green: g, blue: b, alpha: 0.5)
         
-        let nameLength = count(name)
-        let initials : String? = name.substringToIndex(advance(sender.startIndex, min(3, nameLength)))
+        let nameLength = name.characters.count
+        let initials : String? = name.substringToIndex(sender.startIndex.advancedBy(min(3, nameLength)))
         let userImage = JSQMessagesAvatarFactory.avatarWithUserInitials(initials, backgroundColor: color, textColor: UIColor.blackColor(), font: UIFont.systemFontOfSize(CGFloat(13)), diameter: diameter)
         
         avatars[name] = userImage
@@ -137,7 +137,7 @@ class MessagesViewController: JSQMessagesViewController {
     }
     
     override func didPressAccessoryButton(sender: UIButton!) {
-        println("Camera pressed!")
+        print("Camera pressed!")
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
@@ -178,7 +178,7 @@ class MessagesViewController: JSQMessagesViewController {
             cell.textView.textColor = UIColor.whiteColor()
         }
         
-        let attributes : [NSObject:AnyObject] = [NSForegroundColorAttributeName:cell.textView.textColor, NSUnderlineStyleAttributeName: 1]
+        let attributes : [String:AnyObject] = [NSForegroundColorAttributeName:cell.textView.textColor!, NSUnderlineStyleAttributeName: 1]
         cell.textView.linkTextAttributes = attributes
         
         //        cell.textView.linkTextAttributes = [NSForegroundColorAttributeName: cell.textView.textColor,
