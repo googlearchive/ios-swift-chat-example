@@ -178,7 +178,7 @@ class MessagesViewController: JSQMessagesViewController {
             cell.textView.textColor = UIColor.whiteColor()
         }
         
-        let attributes : [NSObject:AnyObject] = [NSForegroundColorAttributeName:cell.textView.textColor, NSUnderlineStyleAttributeName: 1]
+        let attributes : [NSObject:AnyObject] = [NSForegroundColorAttributeName:cell.textView.textColor!, NSUnderlineStyleAttributeName: 1]
         cell.textView.linkTextAttributes = attributes
         
         //        cell.textView.linkTextAttributes = [NSForegroundColorAttributeName: cell.textView.textColor,
