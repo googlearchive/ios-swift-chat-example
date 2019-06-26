@@ -27,7 +27,7 @@ class MessagesViewController: JSQMessagesViewController {
 
     func setupFirebase() {
         // *** STEP 2: SETUP FIREBASE
-        messagesRef = Firebase(url: "https://swift-chat.firebaseio.com/messages")
+        messagesRef = self.ref.childByAppendingPath("messages")
 
         // *** STEP 4: RECEIVE MESSAGES FROM FIREBASE (limited to latest 25 messages)
         messagesRef.queryLimitedToNumberOfChildren(25).observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) in
